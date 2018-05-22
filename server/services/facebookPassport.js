@@ -18,7 +18,7 @@ passport.use(
     new FacebookStrategy({
             clientID: keys.facebookClientID,
             clientSecret: keys.facebookClientSecret,
-            callbackURL: '/auth/facebook/callback',
+            callbackURL: process.env.NODE_ENV === 'production' ? 'https://recipebox-io.herokuapp.com/auth/facebook/callback' : 'http://localhost:3000/auth/facebook/callback',
 			profileFields: ['id', 'email', 'displayName', 'photos'],
 			proxy: process.env.NODE_ENV !== 'production'
         },
