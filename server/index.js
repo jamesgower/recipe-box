@@ -4,10 +4,12 @@ const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const mongoose = require('mongoose');
 const passport = require('passport');
+
 require('./models/User');
 require('./models/Recipe');
 require('./models/Ingredients');
-require('./services/passport');
+require('./services/googlePassport');
+require('./services/facebookPassport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
