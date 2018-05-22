@@ -14,8 +14,8 @@ module.exports = app => {
     }));
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/',
-        failureRedirect: '/login'
+        successRedirect: '/dashboard',
+        failureRedirect: '/'
     }));
 
     app.get('/api/logout', (req, res) => {
