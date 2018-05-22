@@ -1,6 +1,6 @@
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20');
-const FacebookStrategy = require('passport-facebook');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const keys = require('../config/keys');
 const mongoose = require('mongoose');
 
@@ -20,7 +20,7 @@ passport.use(
             clientID: keys.googleClientID,
             clientSecret: keys.googleClientSecret,
             callbackURL: '/auth/google/callback',
-            proxy: true,
+            proxy: process.env.NODE_ENV === 'production',
         },
         async (accessToken, refreshToken, profile, done) => {
             const existingUser = await User.findOne({
@@ -45,7 +45,8 @@ passport.use(
             clientID: keys.facebookClientID,
             clientSecret: keys.facebookClientSecret,
             callbackURL: '/auth/facebook/callback',
-            profileFields: ['id', 'email', 'displayName', 'photos']
+            profileFields: ['id', 'email', 'displayName', 'photos'],
+            proxy: process.env.NODE_ENV === 'production'
         },
         async (accessToken, refreshToken, profile, done) => {
             const existingUser = await User.findOne({
