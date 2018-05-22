@@ -1,0 +1,19 @@
+.welcome-box {
+	font-family: 'Shadows Into Light Two', cursive;
+	width: 320px;
+	border-radius: 20px;
+	margin: 35vh auto;
+	text-align: center;
+	padding: 20px;
+}
+
+.background {
+	margin-top: -1px;
+	padding-top: 1px;
+	background: url('../img/landingBG.jpeg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100vh;
+}
