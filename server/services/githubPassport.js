@@ -1,5 +1,5 @@
 const passport = require('passport');
-const GithubStrategy = require('passport-github').Strategy;
+const GitHubStrategy = require('passport-github').Strategy;
 const keys = require('../config/keys');
 const mongoose = require('mongoose');
 
@@ -14,7 +14,7 @@ passport.deserializeUser(async(id, done) => {
     done(null, user);
 });
 
-passport.use(new GithubStrategy({
+passport.use(new GitHubStrategy({
     clientID: keys.githubClientID,
     clientSecret: keys.githubClientSecret,
     callbackURL: '/auth/github/callback',
@@ -22,9 +22,7 @@ passport.use(new GithubStrategy({
 }, async(accessToken, refreshToken, profile, done) => {
     const existingUser = await User.findOne({githubID: profile.id});
 
-    if (existingUser) 
-        return done(null, existingUser); //if there is a user, return that user
-    
-    const user = await new User({githubID: profile.id, email: profile.emails[0].value, name: profile.displayName, img: profile.photos[0].value}).save();
+    if (existingUser) return done(null, existingUser); //if there is a user, return that user
+    const user = await new User({githubID: profile.id, email: profile.email || 'undefined', name: profile.displayName, img: profile.photos[0].value}).save();
     done(null, user);
 }));

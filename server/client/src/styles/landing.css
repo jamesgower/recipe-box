@@ -2,7 +2,7 @@
 	font-family: 'Shadows Into Light Two', cursive;
 	width: 320px;
 	border-radius: 20px;
-	margin: 35vh auto;
+	margin: 25vh auto;
 	text-align: center;
 	padding: 20px;
 }
@@ -16,4 +16,16 @@
 	-o-background-size: cover;
 	background-size: cover;
 	height: 100vh;
+}
+
+.btn-github {
+	color: #fff;
+    background-color: rgb(26, 25, 25);
+    border-color: rgb(26, 25, 25);
+}
+
+.btn-github:hover {
+	background-color: #000;
+	border-color: #000;
+	color: white;
 }

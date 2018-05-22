@@ -13,13 +13,17 @@ class Landing extends React.Component {
                     }}>
                         Create your own recipes or save one of the thousands of preset ones!
                     </p>
-                    <a href="/auth/google" className="btn btn-danger">
-                        <i className="fab fa-google" style={{paddingRight: '10px'}}/>
+                    <a href="/auth/google" className="btn btn-danger" style={{marginBottom: '10px', width: '200px'}}>
+                        <i className="fab fa-google" style={{float: 'left', marginTop: '5px'}}/>
                         Login with Google
                     </a>
-                    <a href="/auth/facebook" className="btn btn-primary">
-                        <i className="fab fa-facebook" style={{paddingRight: '10px'}}/>
+                    <a href="/auth/facebook" className="btn btn-primary" style={{marginBottom: '10px', width: '200px'}}>
+                        <i className="fab fa-facebook" style={{float: 'left', marginTop: '5px'}}/>
                         Login with Facebook
+                    </a>
+                    <a href="/auth/github" className="btn btn-github" style={{marginBottom: '10px', width: '200px'}}>
+                        <i className="fab fa-github" style={{float: 'left', marginTop: '5px'}}/>
+                        Login with GitHub
                     </a>
                 </div>
             </div>

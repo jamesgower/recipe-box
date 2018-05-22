@@ -10,6 +10,7 @@ require('./models/Recipe');
 require('./models/Ingredients');
 require('./services/googlePassport');
 require('./services/facebookPassport');
+require('./services/githubPassport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
@@ -39,5 +40,5 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-	console.log(`Server is up at port ${port} for ${__dirname}`);
+	console.log(`Server is up at port ${port}`);
 });
