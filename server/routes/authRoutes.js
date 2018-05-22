@@ -17,7 +17,7 @@ module.exports = app => {
         successRedirect: 'https://recipebox-io.herokuapp.com/dashboard',
         failureRedirect: 'https://recipebox-io.herokuapp.com/'
     }));
-});
+};
 
 app
 .get('/api/logout', (req, res) => {
