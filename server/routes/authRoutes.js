@@ -18,6 +18,12 @@ module.exports = app => {
         failureRedirect: '/'
     }));
 
+    app.get('/auth/github', passport.authenticate('github'));
+
+    app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/'}), (req, res) => {
+        res.redirect('/dashboard');
+    });
+
     app.get('/api/logout', (req, res) => {
         req.logout();
         res.redirect('/');
