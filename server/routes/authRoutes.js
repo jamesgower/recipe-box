@@ -13,7 +13,7 @@ module.exports = app => {
         scope: ['email', 'public_profile']
     }));
 
-    app.get('/auth/facebook/callback', passport.authenticate('google'), (req, res) => {
+    app.get('/auth/facebook/callback', passport.authenticate('facebook'), (req, res) => {
         res.redirect('/dashboard');
     });
 
