@@ -14,8 +14,8 @@ module.exports = app => {
     }));
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: 'https://recipebox-io.herokuapp.com/dashboard',
-        failureRedirect: 'https://recipebox-io.herokuapp.com/'
+        successRedirect: '/dashboard',
+        failureRedirect: '/'
     }));
 };
 
