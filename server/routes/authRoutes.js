@@ -13,10 +13,9 @@ module.exports = app => {
         scope: ['email', 'public_profile']
     }));
 
-    app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/'
-    }));
+    app.get('/auth/facebook/callback', passport.authenticate('facebook'), (req, res) => {
+        res.redirect('/dashboard');
+    });
 
     app.get('/api/logout', (req, res) => {
         req.logout();
