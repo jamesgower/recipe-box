@@ -14,19 +14,16 @@ module.exports = app => {
     }));
 
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/'
+        successRedirect: '/',
+        failureRedirect: '/login'
     }));
-};
 
-app
-.get('/api/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-});
+    app.get('/api/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
+    });
 
-app
-.get('/api/current_user', (req, res) => {
-    res.send(req.user);
-});
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
+    });
 };
