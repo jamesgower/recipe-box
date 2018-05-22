@@ -5,6 +5,8 @@ const keys = require('./config/keys');
 const mongoose = require('mongoose');
 const passport = require('passport');
 require('./models/User');
+require('./models/Recipe');
+require('./models/Ingredients');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
@@ -22,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
+require('./routes/recipeRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build')); //express serves production assets
@@ -34,5 +37,5 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-	console.log(`Server is up at port ${port}`);
+	console.log(`Server is up at port ${port} for ${__dirname}`);
 });
