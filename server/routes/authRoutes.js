@@ -20,7 +20,13 @@ module.exports = app => {
 
     app.get('/auth/github', passport.authenticate('github'));
 
-    app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/'}), (req, res) => {
+    app.get('/auth/github/callback', passport.authenticate('github', {failureRedirect: '/'}), (req, res) => {
+        res.redirect('/dashboard');
+    });
+
+    app.get('/auth/twitter', passport.authenticate('twitter'));
+
+    app.get('/auth/twitter/callback', passport.authenticate('twitter', {failureRedirect: '/'}), (req, res) => {
         res.redirect('/dashboard');
     });
 

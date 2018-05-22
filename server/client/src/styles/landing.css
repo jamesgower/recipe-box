@@ -29,3 +29,39 @@
 	border-color: #000;
 	color: white;
 }
+
+.btn-facebook {
+	color: #fff;
+    background-color: rgb(80, 119, 199);
+    border-color: rgb(80, 119, 199);;
+}
+
+.btn-facebook:hover {
+	color: #fff;
+    background-color: #4267B2;
+    border-color: #4267B2;
+}
+
+.btn-twitter {
+	color: #fff;
+    background-color: rgb(72, 185, 255);
+    border-color: rgb(72, 185, 255);
+	
+}
+.btn-twitter:hover {
+	color: #fff;
+	background-color: #1DA1F2;
+	border-color: #1DA1F2;
+}
+
+.btn-google {
+	color: #fff;
+	background-color: rgb(248, 79, 56);
+	border-color: rgb(248, 79, 56);
+}
+
+.btn-google:hover {
+	color: #fff;
+	background-color: #D64532;
+	border-color: #D64532;
+}

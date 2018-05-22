@@ -13,6 +13,9 @@ const userSchema = new Schema({
     githubID: {
         type: String
     },
+    twitterID: {
+        type: String
+    },
     email: {
         type: String,
         required: true

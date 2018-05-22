@@ -11,6 +11,7 @@ require('./models/Ingredients');
 require('./services/googlePassport');
 require('./services/facebookPassport');
 require('./services/githubPassport');
+require('./services/twitterPassport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
