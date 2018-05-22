@@ -17,7 +17,7 @@ passport.deserializeUser(async(id, done) => {
 passport.use(new GitHubStrategy({
     clientID: keys.githubClientID,
     clientSecret: keys.githubClientSecret,
-    callbackURL: '/auth/github/callback',
+    callbackURL: process.env.NODE_ENV === 'production' ? 'https://recipebox-io.herokuapp.com/auth/github/callback' : '/auth/github/callback',
     proxy: process.env.NODE_ENV !== 'production'
 }, async(accessToken, refreshToken, profile, done) => {
     const existingUser = await User.findOne({githubID: profile.id});
