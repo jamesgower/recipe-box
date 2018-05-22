@@ -6,7 +6,12 @@ const {
 const userSchema = new Schema({
     googleID: {
         type: String,
-        required: true,
+    },
+    facebookID: {
+        type: String
+    },
+    githubID: {
+        type: String
     },
     email: {
         type: String,
