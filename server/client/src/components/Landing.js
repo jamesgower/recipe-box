@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/landing.css';
+import { connect } from 'react-redux';
 
 class Landing extends React.Component {
     render() {
@@ -35,4 +36,8 @@ class Landing extends React.Component {
     }
 }
 
-export default Landing;
+const mapStateToProps = ({ auth }) => {
+    return { auth };
+};
+
+export default connect(mapStateToProps)(Landing);

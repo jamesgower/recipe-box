@@ -19,9 +19,10 @@ passport.use(new TwitterStrategy({
     consumerSecret: keys.twitterClientSecret,
     callbackURL: process.env.NODE_ENV === 'production' ? 'https://recipebox-io.herokuapp.com/auth/twitter/callback' : 'http://localhost:3000/auth/twitter/callback',
 }, async(accessToken, refreshToken, profile, done) => {
+    console.log(JSON.stringify(profile, null, 2));    
     const existingUser = await User.findOne({twitterID: profile.id});
     if (existingUser) return done(null, existingUser); //if there is a user, return that user
-    const user = await new User({twitterID: profile.id, email: profile.email || 'undefined', name: profile.displayName, img: profile.photos[0].value}).save();
+    const user = await new User({twitterID: profile.id, email: profile.email || 'undefined', name: profile.displayName, img: profile.photos[0].value.replace(/_normal/g, '')}).save();
     done(null, user);
 }));
 
