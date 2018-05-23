@@ -33,7 +33,7 @@ passport.use(
                 facebookID: profile.id,
                 email: profile.emails[0].value,
                 name: profile.displayName,
-                img: profile.picture.data.url
+                img: profile.photos[0].value
             }).save();
             done(null, user);
         }
