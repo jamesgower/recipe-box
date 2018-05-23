@@ -20,9 +20,10 @@ passport.use(
             clientSecret: keys.facebookClientSecret,
             callbackURL: process.env.NODE_ENV === 'production' ? 'https://recipebox-io.herokuapp.com/auth/facebook/callback' : 'http://localhost:3000/auth/facebook/callback',
 			profileFields: ['id', 'email', 'displayName', 'photos'],
-			proxy: process.env.NODE_ENV !== 'production'
         },
         async (accessToken, refreshToken, profile, done) => {
+            console.log(JSON.stringify(profile, null, 2));    
+            
             const existingUser = await User.findOne({
                 facebookID: profile.id
             });
