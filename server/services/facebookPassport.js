@@ -22,17 +22,17 @@ passport.use(
 			profileFields: ['id', 'email', 'displayName', 'photos'],
         },
         async (accessToken, refreshToken, profile, done) => {
+            console.log(JSON.stringify(profile, null, 2));
             const existingUser = await User.findOne({
                 facebookID: profile.id
             });
             
             if(existingUser) return done(null, existingUser); 
-            const largerImage = profile.photos[0].value.replace('height=50&width=50', 'height=500&width=500');
+            
             const user = await new User({
                 facebookID: profile.id,
                 email: profile.emails[0].value,
                 name: profile.displayName,
-                img: largerImage
             }).save();
             done(null, user);
         }

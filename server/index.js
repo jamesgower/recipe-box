@@ -13,6 +13,11 @@ require('./services/facebookPassport');
 require('./services/githubPassport');
 require('./services/twitterPassport');
 
+// TODO
+// [ ] find a way to get all emails from accounts
+// [ ] get full size images for all accounts
+// [ ] set up API for random recipes
+
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
