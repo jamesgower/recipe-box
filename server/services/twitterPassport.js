@@ -22,7 +22,8 @@ passport.use(new TwitterStrategy({
     console.log(JSON.stringify(profile, null, 2));    
     const existingUser = await User.findOne({twitterID: profile.id});
     if (existingUser) return done(null, existingUser); //if there is a user, return that user
-    const user = await new User({twitterID: profile.id, email: profile.email || 'undefined', name: profile.displayName, img: profile.photos[0].value.replace(/_normal/g, '')}).save();
+    const largerImage = profile.photos[0].value.replace(/_normal/g, '');
+    const user = await new User({twitterID: profile.id, email: profile.email || 'undefined', name: profile.displayName, img: largerImage }).save();
     done(null, user);
 }));
 
