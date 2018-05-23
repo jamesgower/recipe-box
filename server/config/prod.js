@@ -10,4 +10,5 @@ module.exports = {
 	mongoURI: process.env.MONGODB_URI,
 	cookieKey: process.env.COOKIE_KEY,
 	redirectDomain: process.env.REDIRECT_DOMAIN,
+	food2forkAPIKey: process.env.FOOD_2_FORK_API_KEY
 };

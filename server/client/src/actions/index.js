@@ -22,3 +22,4 @@ export const deleteRecipe = (id, history) => async dispatch => {
     history.push('/dashboard');
     dispatch({type: DELETE_RECIPE, payload: res.data});
 };
+

@@ -28,7 +28,6 @@ passport.use(
             
             if (existingUser) return done(null, existingUser); //if there is a user, return that user
             const largerImage = `${profile.photos[0].value}0`;
-            console.log(largerImage);
             const user = await new User({
                 googleID: profile.id,
                 email: profile.emails[0].value,

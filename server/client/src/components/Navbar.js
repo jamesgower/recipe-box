@@ -59,7 +59,7 @@ class NavBar extends React.Component {
                                     </DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem>
-                                        Logout
+                                        <NavLink href="/api/logout">Logout</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
