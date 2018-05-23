@@ -35,10 +35,6 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/recipeRoutes')(app);
 
-let searchRecipes = async (recipe) => {
-    const response = await fetch(`http://food2fork.com/api/search?key=${keys.}&q=${recipe}`);
-};
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build')); //express serves production assets
     const path = require('path');

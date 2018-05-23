@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {connect} from 'react-redux';
+import keys from '../config/keys';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -15,11 +16,10 @@ class Dashboard extends React.Component {
         this.setState({ search: e.target.value });  
     }
 
-    onRecipeSearch = async (recipe) => {
-        const key = '27aa5db7ab513c467031e7b6a403149c';
-        const id = '8d147efa';
-        const url = `https://api.edamam.com/search&q=${recipe}&app_id=${id}&app_key=${key}`;
-        const response = await fetch(url); 
+    getRecipeFromName = async (recipeName) => {
+        const API_KEY = keys.food2forkAPIKey;
+        var url = `http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}`;
+        const response = await fetch(url);
         console.log(response.json());
     }
 
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
             <div>
                 <h1>Dashboard</h1>
                 <input type="text" value={this.state.search} onChange={e => this.onSearchChange(e)} />
-                <button onClick={() => this.onRecipeSearch(this.state.search)}>Search</button>
+                <button onClick={() => this.getRecipeFromName(this.state.search)}>Search</button>
                 <div>
                 </div>
             </div>
